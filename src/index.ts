@@ -88,3 +88,14 @@ function getDayType(day: Day): string {
     return "Weekend";
   }
 }
+
+async function squareAsync(n: number): Promise<number> {
+  return new Promise((resolve, reject) => {
+    if (n < 0) {
+      return reject(new Error("Negative number not allowed"));
+    }
+    setTimeout(() => {
+      resolve(n * n);
+    }, 1000);
+  });
+}
