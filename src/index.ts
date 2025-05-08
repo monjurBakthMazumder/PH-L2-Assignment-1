@@ -44,14 +44,29 @@ class Car extends Vehicle {
   }
 }
 
-
-function processValue(value: string | number): number{
-  if(typeof value == "string"){
-    return value.length
-  }
-  else{
-    return value * 2
+function processValue(value: string | number): number {
+  if (typeof value == "string") {
+    return value.length;
+  } else {
+    return value * 2;
   }
 }
 
+interface Product {
+  name: string;
+  price: number;
+}
 
+function getMostExpensiveProduct(products: Product[]): Product | null {
+  if (products.length === 0) return null;
+
+  let highestPriceProduct = products[0];
+
+  for (const product of products) {
+    if (product.price > highestPriceProduct.price) {
+      highestPriceProduct = product;
+    }
+  }
+
+  return highestPriceProduct;
+}
